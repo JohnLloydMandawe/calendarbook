@@ -29,6 +29,7 @@ export default function App() {
 
   const today = new Date().toISOString().split('T')[0];
 
+ //Fetch sa reserve
   useEffect(() => {
     fetchReservations();
   }
@@ -54,6 +55,7 @@ export default function App() {
     }
   };
 
+// add sa reserve
   const addreservation = async (date: string, name: string, reason: string) => {
     if (!date) return;
     const { error } = await supabase.from('reservations').insert([
@@ -78,11 +80,13 @@ export default function App() {
     setSelectedDate('');
   };
 
+//delete sa reserve
   const deletereservation = async (date: string) => {
 
     await supabase.from('reservations').delete().eq('date', date);
     fetchReservations();
   };
+
 
   return (
     <View style={styles.container}>

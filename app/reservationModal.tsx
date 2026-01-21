@@ -10,6 +10,7 @@ type ReservationModalProps = {
   onDelete: (date: string) => void;
 };
 
+//reserve modal
 export default function ReservationModal({
   visible,
   date,
@@ -18,7 +19,8 @@ export default function ReservationModal({
 }: ReservationModalProps): JSX.Element {
   const [name, setname] = useState("");
   const [reason, setreason] = useState("");
-
+  
+ // nag handle sa add
   const handelAdd = () => {
     if (!name.trim()) return;
     if (!reason.trim()) return;
